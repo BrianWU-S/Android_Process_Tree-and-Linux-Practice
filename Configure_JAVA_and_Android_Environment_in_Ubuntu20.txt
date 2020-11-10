@@ -1,0 +1,51 @@
+Configure the JAVA Environment and Android Environment in Ubuntu 20.04
+##########################################
+##########################################
+type -p javac|xargs readlink -f|xargs dirname|xargs dirname 			//output the correct path to JAVA_HOME (Not always).
+
+ "~/" is the current user's home directory	 (usually /home/user for a normal user or /root for the root user). 
+The 'ls -la' part is a command named 'ls', which is used to list the contents of a directory, with the switches '-l' '-a', 
+that tell ls to show the permissions of each file/directory (-l) and include hidden files and directories in the list (-a).
+-->
+'ls -la ~/' basically means "list all the files and directories
+ (including the hidden ones) in the current home directory
+and show their permissions"
+
+nano ~/.bashrc    打开 个人环境变量编辑
+/etc/profile  系统变量编辑
+sudo nano bash.bashrc     在etc目录下打开，打开此文件，
+source ~/.bashrc    启用新版本的bashrc
+sudo passwd root   以超级用户的形式进入，更改进入时候的密码
+su 进入超级用户模式   （ctrl+D退出）
+
+##########################################
+##########################################
+
+Configure the Android Environment:
+
+sudo apt install default-jdk			//install JDK
+java --version				//check java version
+//JRE: Java Runtime Environment. It is basically the Java Virtual Machine where your Java programs run on. It also includes browser plugins for Applet execution.
+
+//JDK: It's the full featured Software Development Kit for Java, including JRE, and the compilers and tools (like JavaDoc, and Java Debugger) to create and compile programs.
+
+sudo apt-get install libc6:i386 libgcc1:i386 gcc-8-base:i386 libstdc++5:i386 libstdc++6:i386
+
+// unzip file
+ This is an example. 
+Step 1 (I changed to the directory where the zip file is stored): cd /home/paf/Copy/Programming/Javascript/Json 
+Step2 (I extract the zip file in the directory I have just mentioned): unzip file.zip -d /home/paf/Copy/Programming/Javascript/Json
+
+//设置NDK环境变量
+nano ~/.bashrc
+export NDK_HOME=/home/skywang/workspace/ndk/r7b/android-ndk-r7b
+export PATH=$PATH:$NDK_HOME
+source ~/.bashrc
+
+//set Android.mk
+The Application.mk is meant for settings that apply for all modules, whereas the Android.mk is for specific module settings.
+1、 create Android.mk
+2、 ndk-build in jni folder
+
+// set ADB
+export PATH=${PATH}:/home/YOUR-USERNAME/path/to/adb   			e.g --> ~/下载/SDK_Android/android-sdk-linux/platform-tools

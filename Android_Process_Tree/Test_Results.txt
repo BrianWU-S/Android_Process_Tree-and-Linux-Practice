@@ -1,0 +1,91 @@
+#####################################################
+#####################################################
+#####################################################
+1_Basic_Test_sysytem_call
+
+Command and Output: 
+
+wsq@wsq-vm:~$ adb shell
+root@generic:/ # cd data/misc
+root@generic:/data/misc # insmod ptree_system_call.ko
+root@generic:/data/misc # lsmod
+Module                  Size  Used by
+ptree_system_call       1868  0 
+root@generic:/data/misc # ./callerARM
+The correct number in buffer is 20 
+swapper,0,0,0,1,0,0
+	init,1,1,0,45,2,0
+		ueventd,45,1,1,0,62,0
+		logd,62,1,1,0,63,1036
+		vold,63,1,1,0,67,0
+		healthd,67,1,1,0,68,0
+		lmkd,68,1,1,0,69,0
+		servicemanager,69,1,1,0,70,1000
+		surfaceflinger,70,2,1,0,72,1000
+		qemud,72,1,1,0,75,0
+		sh,75,1,1,0,76,2000
+		adbd,76,1,1,1317,82,0
+			sh,1317,1,76,1323,0,0
+				callerARM,1323,0,1317,0,0,0
+		debuggerd,82,1,1,0,83,0
+		rild,83,1,1,0,84,1001
+		drmserver,84,1,1,0,86,1019
+		installd,86,1,1,0,87,0
+		keystore,87,1,1,0,92,1017
+		gatekeeperd,92,1,1,0,93,1000
+root@generic:/data/misc # exit
+wsq@wsq-vm:~$ 
+
+Expected results : correct
+Brief explanation:  In the callerARM executable file, I set the buffer size to 20. So the results present the 20 processes task_stuct infromation
+in the command line. It's easy for you to change the buffer size in caller.c 
+We can see the correct indentation among parent,children and sibling processes.
+More details about the program you can see in caller.c  caller.h and ptree_system_call.c    I've written some important ideas' explanation in the 
+code comments.
+
+
+#####################################################
+#####################################################
+#####################################################
+2_Change_Tree_and_test
+
+Command and Output:
+
+wsq@wsq-vm:~$ adb shell
+root@generic:/ # cd data/misc
+root@generic:/data/misc # chmod 777 execlARM
+root@generic:/data/misc # ./execlARM
+518021910665Child 1362 
+518021910665Parent 1361 
+The correct number in buffer is 20 
+swapper,0,0,0,1,0,0
+	init,1,1,0,45,2,0
+		ueventd,45,1,1,0,62,0
+		logd,62,1,1,0,63,1036
+		vold,63,1,1,0,67,0
+		healthd,67,1,1,0,68,0
+		lmkd,68,1,1,0,69,0
+		servicemanager,69,1,1,0,70,1000
+		surfaceflinger,70,1,1,0,72,1000
+		qemud,72,1,1,0,75,0
+		sh,75,1,1,0,76,2000
+		adbd,76,1,1,1356,82,0
+			sh,1356,1,76,1361,0,0
+				execlARM,1361,1,1356,1362,0,0
+					callerARM,1362,0,1361,0,0,0
+		debuggerd,82,1,1,0,83,0
+		rild,83,1,1,0,84,1001
+		drmserver,84,1,1,0,86,1019
+		installd,86,1,1,0,87,0
+		keystore,87,1,1,0,92,1017
+Child return status:0
+Child Completeroot@generic:/data/misc # 
+
+Expected results : correct
+Brief explanation: In the execl.c , I use fork() function to create parent and child process, get output their pid (518021910665Child 1362 
+518021910665Parent 1361) in the beginning of the results.
+In child process, I use execl() call to exe the ptree program, which is callerARM in /data/misc.  So we can see in the ptree system call output, execlARM's pid
+is 1361 and it's child pid is 1362, which corresponds to child (callerARM) pid . In child process, we can see its parent pid is 1361, which corresponds to execlARM(1361).
+Thus, the result is correct.
+For the fact that we've install our module into kernel, so this time we just move "execlARM" executable file into android and execute it. The commands about that
+ you can see above. 

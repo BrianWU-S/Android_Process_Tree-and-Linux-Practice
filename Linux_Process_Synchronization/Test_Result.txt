@@ -1,0 +1,239 @@
+Command and Output:
+
+wsq@wsq-vm:~$ adb push ~/文档/MyProject/Assignment1_1/Assignment1_synchronization/libs/armeabi/BurgerARM /data/misc
+359 KB/s (13540 bytes in 0.036s)
+wsq@wsq-vm:~$ adb shell
+root@generic:/ # cd data/misc
+root@generic:/data/misc # chmod 777 BurgerARM
+root@generic:/data/misc # ./BurgerARM 2 4 41 10
+Begin run
+Cooks[2], Cashiers[4], Customers[41], Buffer size: 10 
+init mutex lock
+init Buffer
+init threads
+init threads Identifier
+Customer[0 ] come
+Customer[1 ] come
+Customer[2 ] come
+Cashier[3 ] accept an order
+Cashier[2 ] accept an order
+Cashier[1 ] accept an order
+Cook[ 1 ] make a burger
+Cook[ 1 ] make a burger
+Customer[4 ] come
+Cashier[0 ] accept an order
+Customer[3 ] come
+Cashier[3 ] take a burger to customer
+Customer[0 ] leave
+Cashier[2 ] take a burger to customer
+Customer[1 ] leave
+Cook[ 1 ] make a burger
+Cook[ 0 ] make a burger
+Cashier[3 ] accept an order
+Cashier[1 ] take a burger to customer
+Customer[2 ] leave
+Cashier[0 ] take a burger to customer
+Cook[ 1 ] make a burger
+Cook[ 0 ] make a burger
+Customer[4 ] leave
+Cashier[3 ] take a burger to customer
+Cook[ 1 ] make a burger
+Cook[ 0 ] make a burger
+Customer[3 ] leave
+Cook[ 1 ] make a burger
+Cook[ 0 ] make a burger
+Cook[ 1 ] make a burger
+Cook[ 0 ] make a burger
+Cook[ 1 ] make a burger
+Cook[ 0 ] make a burger
+Customer[13 ] come
+Cook[ 1 ] make a burger
+Cashier[2 ] accept an order
+Customer[14 ] come
+Cashier[3 ] accept an order
+Cashier[3 ] take a burger to customer
+Cashier[2 ] take a burger to customer
+Customer[10 ] come
+Cashier[1 ] accept an order
+Customer[10 ] leave
+Customer[13 ] leave
+Customer[11 ] come
+Cashier[3 ] accept an order
+Cashier[1 ] take a burger to customer
+Cook[ 1 ] make a burger
+Customer[11 ] leave
+Cashier[3 ] take a burger to customer
+Cook[ 1 ] make a burger
+Cook[ 0 ] make a burger
+Customer[14 ] leave
+Customer[12 ] come
+Cashier[2 ] accept an order
+Cashier[2 ] take a burger to customer
+Cook[ 1 ] make a burger
+Customer[12 ] leave
+Customer[6 ] come
+Cashier[3 ] accept an order
+Customer[5 ] come
+Cashier[2 ] accept an order
+Cashier[3 ] take a burger to customer
+Cashier[2 ] take a burger to customer
+Cook[ 1 ] make a burger
+Customer[6 ] leave
+Customer[7 ] come
+Cashier[1 ] accept an order
+Customer[7 ] leave
+Customer[8 ] come
+Cashier[3 ] accept an order
+Cashier[1 ] take a burger to customer
+Cook[ 1 ] make a burger
+Cook[ 0 ] make a burger
+Cook[ 1 ] make a burger
+Customer[9 ] come
+Cashier[2 ] accept an order
+Customer[9 ] leave
+Cashier[2 ] take a burger to customer
+Customer[5 ] leave
+Customer[15 ] come
+Cashier[1 ] accept an order
+Cook[ 1 ] make a burger
+Customer[16 ] come
+Cashier[2 ] accept an order
+Customer[17 ] come
+Cashier[0 ] accept an order
+Customer[18 ] come
+Cashier[1 ] take a burger to customer
+Cashier[2 ] take a burger to customer
+Cashier[0 ] take a burger to customer
+Cook[ 1 ] make a burger
+Customer[8 ] leave
+Cashier[1 ] accept an order
+Customer[18 ] leave
+Customer[15 ] leave
+Customer[24 ] come
+Cashier[2 ] accept an order
+Customer[19 ] come
+Cashier[2 ] take a burger to customer
+Cashier[1 ] take a burger to customer
+Cook[ 1 ] make a burger
+Cook[ 0 ] make a burger
+Cashier[0 ] accept an order
+Customer[19 ] leave
+Customer[16 ] leave
+Cashier[0 ] take a burger to customer
+Cook[ 1 ] make a burger
+Cook[ 0 ] make a burger
+Customer[24 ] leave
+Cook[ 1 ] make a burger
+Customer[23 ] come
+Cashier[2 ] accept an order
+Customer[27 ] come
+Cashier[1 ] accept an order
+Customer[20 ] come
+Cashier[2 ] take a burger to customer
+Cashier[2 ] accept an order
+Cashier[1 ] take a burger to customer
+Customer[20 ] leave
+Customer[23 ] leave
+Customer[21 ] come
+Cashier[0 ] accept an order
+Cashier[2 ] take a burger to customer
+Cashier[0 ] take a burger to customer
+Cook[ 1 ] make a burger
+Cook[ 0 ] make a burger
+Customer[22 ] come
+Cashier[1 ] accept an order
+Cashier[1 ] take a burger to customer
+Cook[ 1 ] make a burger
+Cook[ 0 ] make a burger
+Customer[22 ] leave
+Customer[27 ] leave
+Customer[25 ] come
+Cashier[2 ] accept an order
+Customer[25 ] leave
+Customer[26 ] come
+Cashier[1 ] accept an order
+Cashier[2 ] take a burger to customer
+Cook[ 1 ] make a burger
+Customer[26 ] leave
+Customer[28 ] come
+Cashier[2 ] accept an order
+Customer[29 ] come
+Customer[30 ] come
+Cashier[1 ] take a burger to customer
+Cashier[1 ] accept an order
+Cashier[2 ] take a burger to customer
+Cook[ 1 ] make a burger
+Cashier[1 ] take a burger to customer
+Cashier[2 ] accept an order
+Customer[30 ] leave
+Customer[28 ] leave
+Customer[21 ] leave
+Customer[31 ] come
+Cashier[1 ] accept an order
+Cook[ 1 ] make a burger
+Cashier[2 ] take a burger to customer
+Cashier[1 ] take a burger to customer
+Cook[ 0 ] make a burger
+Customer[32 ] come
+Cashier[2 ] accept an order
+Customer[32 ] leave
+Customer[29 ] leave
+Customer[35 ] come
+Cashier[1 ] accept an order
+Cashier[2 ] take a burger to customer
+Cook[ 1 ] make a burger
+Cook[ 0 ] make a burger
+Customer[35 ] leave
+Customer[37 ] come
+Cashier[2 ] accept an order
+Cashier[1 ] take a burger to customer
+Cook[ 1 ] make a burger
+Cook[ 0 ] make a burger
+Customer[37 ] leave
+Customer[39 ] come
+Cashier[1 ] accept an order
+Customer[40 ] come
+Customer[36 ] come
+Customer[33 ] come
+Cashier[2 ] take a burger to customer
+Cashier[2 ] accept an order
+Cashier[1 ] take a burger to customer
+Cook[ 1 ] make a burger
+Customer[31 ] leave
+Customer[40 ] leave
+Cashier[1 ] accept an order
+Customer[34 ] come
+Cashier[2 ] take a burger to customer
+Cashier[2 ] accept an order
+Cashier[1 ] take a burger to customer
+Cook[ 1 ] make a burger
+Cook[ 0 ] make a burger
+Cashier[2 ] take a burger to customer
+Cook[ 0 ] make a burger
+Customer[39 ] leave
+Customer[36 ] leave
+Cashier[1 ] accept an order
+Customer[33 ] leave
+Customer[38 ] come
+Cashier[2 ] accept an order
+Cashier[1 ] take a burger to customer
+Cashier[2 ] take a burger to customer
+Cook[ 0 ] make a burger
+Customer[34 ] leave
+Customer[38 ] leave
+Cook[ 0 ] make a burger
+Cook[ 0 ] make a burger
+Cashier[3 ] take a burger to customer
+Cook[ 0 ] make a burger
+Cook[ 1 ] make a burger
+Customer[17 ] leave
+root@generic:/data/misc # 
+
+Expected results : correct
+Brief explanation: In this Burger_buddies problem, I try to make it more fun. 
+First, I make the Cooks and cashiers all take different times to do their job. Due to the
+fact that a cook need more time to make a burger, so I put longer time for cooks.
+Second, I try to show you when a customer leave, which is not required but I think it's fun to know when they leave. So as you can see in the program, I add two semaphores: getBurger , order. in order to help implement it.
+Third, I've try to use the knowledge we've learn in the lecture on the project. I try to use pthread_mutex_t and semaphore to separately run the project. And I
+also add a count as Cooks and Cashiers shared resources . The mutex works well , and I spend some time to figure out that it will not cause a deadlock. PS:  You can see
+it in the program, I've written it down in the notations. If you want to try, you can just de-comment it and run it. 

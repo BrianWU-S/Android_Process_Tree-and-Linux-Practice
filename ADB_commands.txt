@@ -1,0 +1,81 @@
+ADB commands:
+
+adb   			//check
+adb devices -l		//check whether the devices is connected 
+// adb service
+adb start-service
+adb kill service
+adb install ~/Desktop/netdroid.apk        //install the android application to the phone
+adb shell pm list packages netdroid       // using pm(package manager) to list the full name(like org.pctechtips.netdroid) of the pakage you want to uninstall, otherwise you can't do it successfully
+adb uninstall fullnameofthePackage	//you don't need to provide the path
+adb shell pm list packages		//list all the packages
+adb shell pm list packages | grep music	//列出含music的packages
+adb shell pm path org.pctechtips.netdroid	//find path of specific package
+adb shell install -r "/path/to/the/package"		//-r means uninstall
+adb shell install -r "/path/to/the/package" apk:Desktop/netdroid.apk    //reinstall
+adb shell am start -n  org.pctechtips.netdroid/org.pctechtips.netdroid.MainActivity      //am(app manager), start the app
+adb shell am force-stop org.pctechtips.netdroid --user all		// stop app, using user mode
+adb shell dumpsys window windows | grep -i focus	//see the current open app
+
+adb shell ps      //list all the process
+adb shell ps | grep netdroid		//see the process imformation(ID number)
+adb shell kill -9 ps_ID   		//-9 be a group member	
+adb ip addr show		// a list of all the IP address
+adb shell ip addr show wlan0	//get information of a specific ID(wire less area network)
+adb shell route		
+adb shell dumpsys 		//give a lot of information about system
+adb shell dumpsys > Desktop/dumpsys_info.txt			//save the information in specific file
+adb shell dumpsys | less
+adb shell dumpsys battery / cpuinfo / display / lacation/     //info about battery
+adb shell getprop | grep hostname      //getprop(property)
+adb shell getprop | grep o.build.version.sdk		//get the prop of the sdk version
+
+adb backup -apk(all the app packages) -shared(all the sdcard content) -....(things you want to backup) -f Desktop/af/afas(file you want to save)
+
+adb reboot 
+
+//do not try
+adb reboot -bootloader		//using fastboot , the command is very dangerous
+fastboot devices
+fastboot oem(because his phone is oem devices)
+
+
+
+//start avd      ./tools/android avd  in SDK folder
+./android avd
+
+//An example to quickly start adb
+adb shell
+ls -alh
+cd sdcard
+ls -al
+input text "hello,world"      //input helloworld in the android devices Google
+am start -a android.media.action.STILL_IMAGE_CAMERA	//start camera in Android devices
+adb pull /sdcard/screencap2.png ~/Desktop 	// remember that adb is a shell that runs on the host OS, and you can't use the command "pull/push in the Android Devices"
+adb push ~/文档/myDos.txt /sdcard
+echo "Hello,world,wsq" > ~/文档/myDos.txt
+adb push ~/文dd档/myDos.txt /sdcard/
+
+
+//adb try to activate the root style
+adb shell setprop ro.secure 0
+adb shell setprop ro.debuggable 1
+adb shell setprop persist.service.adb.enable 1 
+adb root
+
+//注意，Android 7.0的模拟器是没有root权限的！，因此不能用root
+
+// common commands about Linux kernel thread and kernel process
+strace ./helloARM					// traces system call to help trace file execution
+lsmod   					//list all kernel modules that are currently loaded
+dmesg   					// message of the kernel, printk() can output content to it
+sudo dmesg -c    					// clear the kernel message log
+find -name filename					//find where the file is
+ps -ef       				// The command ps -ef is used to display the kernel threads on a running Linux system.
+
+//exit adb 
+exit  or ctrl + d
+
+//learning ADB shell command
+busybox    //all the command (or functions)you can use     
+busybox -lha       //equal to -l(文件型态、权限、拥有者、文件大小等资讯详细列出)  -h(human readable，4096->4k) -a(all,including the hidden files)    -A: 同 -a ，但不列出 "." (目前目录) 及 ".." (父目录)     -F 在列出的文件名称后加一符号；例如可执行档则加 "*", 目录则加 "/"   -t 将文件依建立时间之先后次序列出
