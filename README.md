@@ -1,5 +1,6 @@
 # Android_Process_Tree
-The whole project is developed under Linux OS(Ubuntu 20.04). A new Android system call is implemented with module to process tree information in a depthfirst-search (DFS) order. 
+The whole project is developed under Linux OS(Ubuntu 20.04). A new Android system call is implemented with module to process tree information in a depthfirst-search (DFS) order.
+
 ##  Basic Test for new sysytem call
 This simple C program which calls ptree system call to print the entire process tree (in DFS order). Using tabs to indent children with respect to their parents.
 The output format of every process is:
@@ -23,3 +24,5 @@ Then use execl to execute ptree in the child process，and examine the connectio
 * 7.	The cook will always make burgers and place them on the rack.
 * 8.	The cook will wait if the rack is full.
 * 9.	There are NO synchronization constraints for a cashier presenting food to the customer.
+
+# Each part's Command line result is saved in Test_result.txt separately. 
