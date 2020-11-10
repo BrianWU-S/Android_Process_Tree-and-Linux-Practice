@@ -10,7 +10,7 @@ Here I summarise the basic Programm-developing knowledge under Linux. You can se
 Also, there is a baisc Andriod Debugging Bridge (ADB) usage guidline in ADB_commands.txt. Hope this two files will be helpful for you when you are a novice to Linux system.
 ## Linux Process Synchronization
 – Burger Buddies Problem Description:
-* 1.Cooks, Cashiers, and Customers are each modeled as a thread. 
+* 1.  Cooks, Cashiers, and Customers are each modeled as a thread. 
 * 2.	Cashiers sleep until a customer is present.
 * 3.	A Customer approaching a cashier can start the order process.
 * 4.	A Customer cannot order until the cashier is ready.
